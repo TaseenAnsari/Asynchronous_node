@@ -41,3 +41,15 @@ function sendEmail(email, movie) {
         }, 4000)
     })
 }
+//creating sattled promise
+p2 = Promise.resolve('already reject');
+p1 = Promise.resolve("already resolve");
+
+p1.then((res)=>console.log(res))
+p2.then((rej)=>console.log(rej))
+
+//consume multiple promises at one time and return array or result | parallel promise
+Promise.all([p1,p2]).then((result)=>console.log(result));
+
+//return fastest consuming promises
+Promise.race([p1,p2]).then((result)=>console.log(result));
