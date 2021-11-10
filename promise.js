@@ -12,7 +12,7 @@ function getCustomer(id) {
         const customer = {
             id: 1,
             name: "taseen",
-            isGold: false,
+            isGold: true,
             email: 'abc@123',
         }
         setTimeout(() => {
@@ -42,14 +42,14 @@ function sendEmail(email, movie) {
     })
 }
 //creating sattled promise
-p2 = Promise.resolve('already reject');
+p2 = Promise.resolve("already reject");
 p1 = Promise.resolve("already resolve");
 
-p1.then((res)=>console.log(res))
-p2.then((rej)=>console.log(rej))
+p1.then((res)=>console.log("sattled:",res));
+p2.then((rej)=>console.log("sattled:",rej));
 
 //consume multiple promises at one time and return array or result | parallel promise
-Promise.all([p1,p2]).then((result)=>console.log(result));
+Promise.all([p1,p2]).then((result)=>console.log("Prallel:",result));
 
 //return fastest consuming promises
-Promise.race([p1,p2]).then((result)=>console.log(result));
+Promise.race([p1,p2]).then((result)=>console.log("Race:",result));
